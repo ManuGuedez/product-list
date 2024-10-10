@@ -1,94 +1,102 @@
 {
-    "products": [
+  "products": [
     {
-        "id": 1,
-        "name": "Apples",
-        "description": "Fresh red apples",
-        "category": "Fruits",
-        "cantidad": 50,
-        "emoji": "🍎",
-        "comprado":"false"
+      "id": "1",
+      "name": "Apples",
+      "description": "Fresh red apples",
+      "category": "Fruits",
+      "cantidad": 50,
+      "emoji": "🍎",
+      "comprado": false
     },
     {
-        "id": 2,
-        "name": "Whole Milk",
-        "description": "1-liter carton of whole milk",
-        "category": "Dairy",
-        "cantidad": 30,
-        "emoji": "🥛",
-        "comprado":"false"
+      "id": "2",
+      "name": "Whole Milk",
+      "description": "1-liter carton of whole milk",
+      "category": "Dairy",
+      "cantidad": 30,
+      "emoji": "🥛",
+      "comprado": false
     },
     {
-        "id": 3,
-        "name": "Rice",
-        "description": "1 kg pack of white rice",
-        "category": "Grains",
-        "cantidad": 25,
-        "emoji": "🍚",
-        "comprado":"false"
+      "id": "3",
+      "name": "Rice",
+      "description": "1 kg pack of white rice",
+      "category": "Grains",
+      "cantidad": 25,
+      "emoji": "🍚",
+      "comprado": false
     },
     {
-        "id": 4,
-        "name": "Banana",
-        "description": "500g bananas",
-        "category": "Fruits",
-        "cantidad": 40,
-        "emoji": "🍌",
-        "comprado":"false"
+      "id": "4",
+      "name": "Banana",
+      "description": "500g bananas",
+      "category": "Fruits",
+      "cantidad": 40,
+      "emoji": "🍌",
+      "comprado": false
     },
     {
-        "id": 5,
-        "name": "Pasta",
-        "description": "500g of pasta",
-        "category": "Grains",
-        "cantidad": 15,
-        "emoji": "🍝",
-        "comprado":"false"
+      "id": "5",
+      "name": "Pasta",
+      "description": "500g of pasta",
+      "category": "Grains",
+      "cantidad": 15,
+      "emoji": "🍝",
+      "comprado": false
     },
     {
-        "id": 6,
-        "name": "Eggs",
-        "description": "A dozen large eggs",
-        "category": "Dairy",
-        "cantidad": 50,
-        "emoji": "🥚",
-        "comprado":"false"
+      "id": "6",
+      "name": "Eggs",
+      "description": "A dozen large eggs",
+      "category": "Dairy",
+      "cantidad": 50,
+      "emoji": "🥚",
+      "comprado": false
     },
     {
-        "id": 7,
-        "name": "Peach",
-        "description": "1 kg of fresh peaches",
-        "category": "Fruits",
-        "cantidad": 45,
-        "emoji": "🍑",
-        "comprado":"false"
+      "id": "7",
+      "name": "Peach",
+      "description": "1 kg of fresh peaches",
+      "category": "Fruits",
+      "cantidad": 45,
+      "emoji": "🍑",
+      "comprado": false
     },
     {
-        "id": 8,
-        "name": "Maracuya",
-        "description": "1kg of maracuya",
-        "category": "Fruits",
-        "cantidad": 20,
-        "emoji": "🍋",
-        "comprado":"false"
+      "id": "8",
+      "name": "Maracuya",
+      "description": "1kg of maracuya",
+      "category": "Fruits",
+      "cantidad": 20,
+      "emoji": "🍋",
+      "comprado": false
     },
     {
-        "id": 9,
-        "name": "Pan",
-        "description": "2 flautas",
-        "category": "Grains",
-        "cantidad": 35,
-        "emoji": "🥖",
-        "comprado":"false"
+      "id": "9",
+      "name": "Pan",
+      "description": "2 flautas",
+      "category": "Grains",
+      "cantidad": 35,
+      "emoji": "🥖",
+      "comprado": false
     },
     {
-        "id": 10,
-        "name": "Cheese",
-        "description": "400g muzzarella",
-        "category": "Dairy",
-        "cantidad": 60,
-        "emoji": "🧀",
-        "comprado":"false"
+      "id": "10",
+      "name": "Cheese",
+      "description": "400g muzzarella",
+      "category": "Dairy",
+      "cantidad": 60,
+      "emoji": "🧀",
+      "comprado": false
+    },
+    {
+      "id": "8ae3",
+      "name": "chocolate",
+      "description": "dwe",
+      "category": "Dairy",
+      "cantidad": 3,
+      "comprado": false
     }
-    ]
+  ]
 }

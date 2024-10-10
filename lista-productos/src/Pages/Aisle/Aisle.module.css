@@ -4,6 +4,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: center; */
 }
 
 .cardsContainer {
@@ -14,8 +15,34 @@
     gap: 10px;
     margin-top: 20px;
     padding: 5px;
+    align-items: flex-start;
 }
 
 #title {
     text-align: center;
+}
+
+header {
+    width: 100%;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: flex-start;
+    margin-left: 10px;
+    width: 100%;
+}
+
+.aisleContent {
+    width: 85%;
+    height: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgb(225, 225, 191);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    align-content: baseline;
+    min-height: fit-content;
 }

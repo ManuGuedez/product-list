@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./ProductCard.module.css";
 
-function ProductCard({ product, deleteProduct }) {
-  const [comprado, setComprado] = useState(product.comprado);
+function ProductCard({ product, deleteProduct, updateProduct }) {
+  const [comprado, setComprado] = useState(JSON.parse(product.comprado));
+
+  useEffect(() => {
+    product.comprado = comprado;
+    updateProduct(product);
+  }, [comprado]);
 
   const handleCompradoBtn = () => {
     product.comprado = !product.comprado;
@@ -22,7 +27,7 @@ function ProductCard({ product, deleteProduct }) {
           <strong>Cantidad:</strong> {product.cantidad}
         </p>
         <div className={classes.buttonsContainer}>
-          <button onClick={handleCompradoBtn}>{comprado ? "❌" : "✅"}</button>
+          <button onClick={handleCompradoBtn}>{comprado ? "✅" : "❌"}</button>
           <button onClick={handleDeleteBtn}>🗑️</button>
         </div>
       </div>

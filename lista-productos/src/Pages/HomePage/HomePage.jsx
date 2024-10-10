@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./HomePage.module.css";
 import ProductCard from "../../Components/ProductCard/ProductCard";
+import AddProductModal from "../../Components/AddProductModal/AddProductModal";
 
-function HomePage({ products, deleteProduct }) {
+function HomePage({ products, deleteProduct, addNewProduct, updateProduct }) {
   const [currentCategory, setCurrentCategory] = useState("none");
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (currentCategory != "none") {
-      navigate(`/Aisle/${currentCategory}`);
+      navigate(`/aisle/${currentCategory}`);
     }
   }, [currentCategory]);
 
@@ -36,7 +38,13 @@ function HomePage({ products, deleteProduct }) {
               </select>
             </div>
           </div>
-          <button className="button" id={classes.addProductButton}>
+          <button
+            className="button"
+            id={classes.addProductButton}
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
             add product
           </button>
         </div>
@@ -48,10 +56,19 @@ function HomePage({ products, deleteProduct }) {
               key={product.id}
               product={product}
               deleteProduct={deleteProduct}
+              updateProduct={updateProduct}
             />
           );
         })}
       </div>
+      {showModal && (
+        <AddProductModal
+          addNewProduct={addNewProduct}
+          closeModal={() => {
+            setShowModal(false);
+          }}
+        />
+      )}
     </div>
   );
 }

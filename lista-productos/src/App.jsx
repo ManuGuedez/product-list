@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./Pages/HomePage/HomePage.jsx";
 import Aisle from "./Pages/Aisle/Aisle.jsx";
@@ -54,16 +54,33 @@ function App() {
     }
   }
 
-  const addProduct = async (title, description, players, categories) => {
+  const addProduct = async (name, description, category, quantity) => {
     const newProduct = {
-      title: title,
+      name: name,
       description: description,
-      players: players,
-      categories: categories,
+      category: category,
+      cantidad: quantity,
+      comprado: false,
     };
-    await postProduct(newProduct);
+    postProduct(newProduct);
     setProducts([...products, newProduct]);
+    console.log(newProduct.id);
   };
+
+  async function updateProduct(product) {
+    try {
+      // console.log(product.id);
+      await fetch(url + `/${product.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      });
+    } catch (error) {
+      console.log("Error fetching data: ", error);
+    }
+  }
 
   const deleteProduct = (product) => {
     deleteProductAW(product);
@@ -75,8 +92,27 @@ function App() {
   return (
     <Routes>
       <Route path="/*" element={<Navigate replace to="/home" />} />
-      <Route path="/home" element={<HomePage products={products} deleteProduct={deleteProduct}/>} />
-      <Route path="/aisle/:category" element={<Aisle products={products} deleteProduct={deleteProduct}/>} />
+      <Route
+        path="/home"
+        element={
+          <HomePage
+            products={products}
+            deleteProduct={deleteProduct}
+            addNewProduct={addProduct}
+            updateProduct={updateProduct}
+          />
+        }
+      />
+      <Route
+        path="/aisle/:category"
+        element={
+          <Aisle
+            products={products}
+            deleteProduct={deleteProduct}
+            updateProduct={updateProduct}
+          />
+        }
+      />
     </Routes>
   );
 }
