@@ -32,7 +32,7 @@ function AddProductModal({ addNewProduct, closeModal }) {
   return (
     <div className={classes.modal}>
       <div className={classes.modalContent}>
-        <p className="title is-4">Nueva tarea</p>
+        <p className="title is-4">Nuevo producto</p>
         <div className={classes.modalContainer}>
           <div className={classes.field}>
             <label className="label">Nombre</label>
@@ -68,7 +68,7 @@ function AddProductModal({ addNewProduct, closeModal }) {
             </div>
           </div>
           <div className={classes.field}>
-            <label className="label">categorias</label>
+            <label className="label">Categoria</label>
             <div className="select is-fullwidth">
               <select name="category" onChange={handleCategoryChange}>
                 <option value="Fruits">Fruits</option>
