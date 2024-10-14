@@ -50,10 +50,10 @@ function HomePage({ products, deleteProduct, addNewProduct, updateProduct }) {
         </div>
       </header>
       <div className={classes.cardsContainer}>
-        {products.map((product) => {
+        {products.map((product, index) => {
           return (
             <ProductCard
-              key={product.id}
+              key={index}
               product={product}
               deleteProduct={deleteProduct}
               updateProduct={updateProduct}

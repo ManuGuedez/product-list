@@ -18,15 +18,6 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    let productsPromise = fetchDataAW();
-
-    productsPromise.then((data) => {
-      setProducts([...data]);
-      console.log("adentro");
-    });
-  }, []);
-
   async function postProduct(product) {
     try {
       await fetch(url, {
@@ -36,6 +27,9 @@ function App() {
         },
         body: JSON.stringify(product),
       });
+
+      const newProduct = await response.json();
+      return newProduct;
     } catch (error) {
       console.log("Error fetching data: ", error);
     }
@@ -54,6 +48,30 @@ function App() {
     }
   }
 
+  async function updateProductAW(product) {
+    try {
+      const response = await fetch(url + `/${product.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      });
+      const updatedProduct = response.json();
+      return updatedProduct;
+    } catch (error) {
+      console.log("Error fetching data: ", error);
+    }
+  }
+
+  useEffect(() => {
+    let productsPromise = fetchDataAW();
+
+    productsPromise.then((data) => {
+      setProducts([...data]);
+    });
+  }, []);
+
   const addProduct = async (name, description, category, quantity) => {
     const newProduct = {
       name: name,
@@ -62,25 +80,9 @@ function App() {
       cantidad: quantity,
       comprado: false,
     };
-    postProduct(newProduct);
-    setProducts([...products, newProduct]);
-    console.log(newProduct.id);
+    const newProductWithId = await postProduct(newProduct);
+    setProducts([...products, newProductWithId]);
   };
-
-  async function updateProduct(product) {
-    try {
-      // console.log(product.id);
-      await fetch(url + `/${product.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(product),
-      });
-    } catch (error) {
-      console.log("Error fetching data: ", error);
-    }
-  }
 
   const deleteProduct = (product) => {
     deleteProductAW(product);
@@ -88,6 +90,15 @@ function App() {
       ...products.filter((currentSport) => currentSport.id !== product.id),
     ]);
   };
+
+  const updateProduct = async (product) => {
+    const updatedProduct = await updateProductAW(product);
+    setProducts([...products.map((curretnProduct) => {
+      return curretnProduct.id === updatedProduct.id ? updatedProduct : curretnProduct;
+    })]);
+
+
+  }
 
   return (
     <Routes>

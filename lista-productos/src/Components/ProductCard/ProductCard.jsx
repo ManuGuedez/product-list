@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import classes from "./ProductCard.module.css";
 
 function ProductCard({ product, deleteProduct, updateProduct }) {
-  const [comprado, setComprado] = useState(JSON.parse(product.comprado));
+  const [comprado, setComprado] = useState(product.comprado);
 
   useEffect(() => {
     product.comprado = comprado;
@@ -10,9 +10,9 @@ function ProductCard({ product, deleteProduct, updateProduct }) {
   }, [comprado]);
 
   const handleCompradoBtn = () => {
-    product.comprado = !product.comprado;
-    setComprado(product.comprado);
+    setComprado(!comprado);
   };
+  
   const handleDeleteBtn = () =>{
     deleteProduct(product);
   }
