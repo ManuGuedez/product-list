@@ -20,7 +20,7 @@ function App() {
 
   async function postProduct(product) {
     try {
-      await fetch(url, {
+      const response = await fetch(url, {
         method: "POST",
         header: {
           "Content-Type": "application/json",
@@ -73,32 +73,42 @@ function App() {
   }, []);
 
   const addProduct = async (name, description, category, quantity) => {
-    const newProduct = {
-      name: name,
-      description: description,
-      category: category,
-      cantidad: quantity,
-      comprado: false,
-    };
-    const newProductWithId = await postProduct(newProduct);
-    setProducts([...products, newProductWithId]);
+    if (products.length < 15) {
+      const newProduct = {
+        name: name,
+        description: description,
+        category: category,
+        cantidad: quantity,
+        comprado: false,
+      };
+      const newProductWithId = await postProduct(newProduct);
+      setProducts([...products, newProductWithId]);
+    } else {
+      window.alert("no podes tener más de 15 productos");
+    }
   };
 
   const deleteProduct = (product) => {
-    deleteProductAW(product);
-    setProducts([
-      ...products.filter((currentSport) => currentSport.id !== product.id),
-    ]);
+    if (products.length > 10) {
+      deleteProductAW(product);
+      setProducts([
+        ...products.filter((currentSport) => currentSport.id !== product.id),
+      ]);
+    } else {
+      window.alert("no podes tener menos de 10 productos");
+    }
   };
 
   const updateProduct = async (product) => {
     const updatedProduct = await updateProductAW(product);
-    setProducts([...products.map((curretnProduct) => {
-      return curretnProduct.id === updatedProduct.id ? updatedProduct : curretnProduct;
-    })]);
-
-
-  }
+    setProducts([
+      ...products.map((curretnProduct) => {
+        return curretnProduct.id === updatedProduct.id
+          ? updatedProduct
+          : curretnProduct;
+      }),
+    ]);
+  };
 
   return (
     <Routes>

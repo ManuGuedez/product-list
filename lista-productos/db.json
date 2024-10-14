@@ -89,14 +89,6 @@
       "cantidad": 60,
       "emoji": "🧀",
       "comprado": false
-    },
-    {
-      "id": "8ae3",
-      "name": "chocolate",
-      "description": "dwe",
-      "category": "Dairy",
-      "cantidad": 3,
-      "comprado": false
     }
   ]
 }
